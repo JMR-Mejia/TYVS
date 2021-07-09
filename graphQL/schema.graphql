@@ -1,0 +1,52 @@
+type Stat {
+  id: Int,
+  video_id: String!,
+  trending_date: String!,
+  title: String!,
+  channel_title: String!,
+  category_id: Int!,
+  publish_time: String!,
+  tags: String!,
+  views: Int!,
+  likes: Int!,
+  comment_count: Int!,
+  thumbnail_link: String!,
+  comments_disabled: Boolean!,
+  ratings_disabled: Boolean!,
+  video_error_or_removed: Boolean!,
+  description: String!,
+  dislikes: Int!,
+}
+
+type Query {
+  "Get all stats"
+  getStats: [Stat]
+  "Devuelve un curso"
+  getStat(id: Int!): Stat
+}
+
+input StatInput {
+  video_id: String!,
+  trending_date: String!,
+  title: String!,
+  channel_title: String!,
+  category_id: Int!,
+  publish_time: String!,
+  tags: String!,
+  views: Int!,
+  likes: Int!,
+  comment_count: Int!,
+  thumbnail_link: String!,
+  comments_disabled: Boolean!,
+  ratings_disabled: Boolean!,
+  video_error_or_removed: Boolean!,
+  description: String!,
+  dislikes: Int!,
+}
+
+type Mutation {
+  "Create a stat"
+  createStat(input: StatInput!): Int!
+  "Removed a Stat"
+  deleteStat(id: Int!): Int!
+}
